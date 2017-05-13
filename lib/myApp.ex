@@ -11,7 +11,7 @@ defmodule MyApp do
     ]
 
     opts = [
-      stategy: :one_for_one, name: MyApp.Supervisor
+      strategy: :one_for_one, name: MyApp.Supervisor
     ]
 
     Supervisor.start_link(children, opts)
