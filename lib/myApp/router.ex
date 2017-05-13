@@ -6,7 +6,6 @@ defmodule MyApp.Router do
   plug :match
   plug :dispatch
 
-  forward "/", to: MyApp.HelloPlug
   @doc """
   Start the Router
   """
@@ -14,6 +13,15 @@ defmodule MyApp.Router do
   def start_link() do
     {:ok, _} = Plug.Adapters.Cowboy.http(MyApp.Router, [], [port: 4001])
   end
+
+  get "/hello" do
+    conn
+    |> put_resp_content_type("text/html")
+    |> send_resp 200, "<h1> Huzzah!!!</h1>"
+  end
+
+  forward "/", to: MyApp.HelloPlug
+
   match _ do
     conn
       |> send_resp(404, "Not Found")
