@@ -35,7 +35,8 @@ defmodule MyApp.Mixfile do
       {:cowboy, "~> 1.1"},
       {:plug, "~> 1.3"},
       {:earmark, "~> 1.2"},
-      {:ex_doc, "~> 0.15.1"}
+      {:ex_doc, "~> 0.15.1"},
+      {:distillery, "~>1.4"}
     ]
   end
 end
